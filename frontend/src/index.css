@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #7756DA;
+  --primary-hover: #5767DD;
+  --primary-dark: #4F0DCE;
+  --bg-main: #FFFFFF;
+  --bg-secondary: #F2F2F2;
+  --text-dark: #272727;
+  --text-gray: #6E6E6E;
+  --border-color: #E2E8F0;
+  --danger: #ef4444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Common Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.center-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Pill Badge */
+.brand-pill {
+  background-color: var(--primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.subtitle {
+  color: var(--text-gray);
+  font-size: 0.875rem;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+
+.card.selectable {
+  cursor: pointer;
+}
+
+.card.selectable:hover {
+  border-color: var(--primary);
+}
+
+.card.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 1px var(--primary);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--text-dark);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--bg-secondary);
+}
+
+.btn-danger {
+  background-color: white;
+  color: var(--danger);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  background-color: var(--bg-secondary);
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+  background-color: white;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.w-full { width: 100%; }
+.mt-4 { margin-top: 1rem; }
+.mb-4 { margin-bottom: 1rem; }
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.items-center { align-items: center; }
+
+/* Dashboard container */
+.dashboard-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Poll UI */
+.poll-question-header {
+  background-color: var(--text-dark);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px 8px 0 0;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.poll-options-container {
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 1.5rem;
+  background-color: white;
+}
+
+.poll-option {
+  position: relative;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.poll-option:last-child {
+  margin-bottom: 0;
+}
+
+.poll-option.selected {
+  border-color: var(--primary);
+  background-color: rgba(119, 86, 218, 0.05);
+}
+
+.poll-option.result-mode {
+  cursor: default;
+}
+
+.poll-option-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: var(--primary);
+  opacity: 0.8;
+  z-index: 1;
+  transition: width 0.5s ease-out;
+}
+
+.poll-option-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.poll-option-text {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-dark);
+}
+.poll-option-progress .poll-option-text {
+  color: white;
+}
+
+.poll-option-percent {
+  font-weight: 600;
+}
+
+.poll-option-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  color: var(--text-gray);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.poll-option.selected .poll-option-letter,
+.poll-option-progress + .poll-option-content .poll-option-letter {
+  background-color: white;
+  color: var(--primary);
+}
+
+/* Chat FAB */
+.chat-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(119, 86, 218, 0.4);
+  cursor: pointer;
+  z-index: 100;
+  transition: transform 0.2s;
+}
+.chat-fab:hover {
+  transform: scale(1.05);
+}
+
+/* Circular Loader */
+.loader {
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.5rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Timer */
+.timer-pill {
+  color: var(--danger);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
