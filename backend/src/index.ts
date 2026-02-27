@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import { setupSocketHandlers } from './socket';
 import { setupRoutes } from './routes/api';
 
-dotenv.config();
+dotenv.config({ path: '../.env' });
 
 const app = express();
 const server = http.createServer(app);
@@ -34,8 +34,8 @@ setupSocketHandlers(io);
 app.use('/api', setupRoutes(io));
 
 // MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/live-polling-system';
-mongoose.connect(MONGO_URI)
+const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect(MONGO_URI as string)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
 
