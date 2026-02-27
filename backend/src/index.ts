@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import { setupSocketHandlers } from './socket';
 import { setupRoutes } from './routes/api';
 
-dotenv.config({ path: '../.env' });
+dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
