@@ -3,7 +3,10 @@ import type { Poll } from '../hooks/usePoll';
 import { MessageSquare, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/api';
+const BACKEND_URL =
+    import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+
+const API_URL = `${BACKEND_URL}/api`;
 
 const PastPolls: React.FC = () => {
     const [history, setHistory] = useState<Poll[]>([]);

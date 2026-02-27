@@ -16,8 +16,10 @@ export interface Poll {
     startTime: string;
     status: 'waiting' | 'active' | 'closed';
 }
-const API_BASE = import.meta.env.VITE_BACKEND_URL + '/api';
-const API_URL = API_BASE || 'http://localhost:3000/api';
+const BACKEND_URL =
+    import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+
+const API_URL = `${BACKEND_URL}/api`;
 
 export const usePoll = () => {
     const { socket } = useSocket();

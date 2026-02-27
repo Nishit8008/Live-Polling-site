@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
 import { BarChart2 } from 'lucide-react';
 
-const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000/api';
+const BACKEND_URL =
+    import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+
+const API_URL = `${BACKEND_URL}/api`;
 
 const StudentOnboarding: React.FC = () => {
     const [name, setName] = useState('');
